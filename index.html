@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>سراج افروز همدان آذرخش</title>
+    <link href="https://fonts.googleapis.com/css2?family=Vazir&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Vazir', Arial, sans-serif;
+        }
+        body {
+            line-height: 2;
+            color: #333;
+            background-color: #f9f9f9;
+            direction: rtl;
+        }
+        nav {
+            background: linear-gradient(90deg, #1a2b49, #2e4372);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+            padding: 15px 20px;
+        }
+        .nav-container {
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            max-width: 1200px;
+            margin-left: auto;
+            margin-right: calc((100% - 1200px) / 2);
+            gap: 20px;
+        }
+        .logo {
+            color: #f7c948;
+            font-size: 24px;
+            font-weight: bold;
+            text-decoration: none;
+            display: flex;
+            align-items: baseline;
+        }
+        .logo sup {
+            font-size: 12px;
+            color: #fff;
+            margin-right: 5px;
+        }
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 25px;
+        }
+        nav ul li a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 18px;
+            padding: 5px 10px;
+            transition: all 0.3s ease;
+        }
+        nav ul li a:hover {
+            color: #f7c948;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 5px;
+        }
+        .menu-toggle {
+            display: none;
+            font-size: 30px;
+            color: #fff;
+            cursor: pointer;
+        }
+        #header {
+            height: 60vh;
+            width: 100vw;
+            margin: 0;
+            padding: 0;
+            background-image: url('background.webp');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: white;
+            position: relative;
+            left: 0;
+        }
+        #header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.6);
+        }
+        #header h1 {
+            font-size: 40px;
+            position: relative;
+            z-index: 1;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+            animation: fadeIn 1.5s ease-in;
+        }
+        #header .logo-mobile {
+            display: none;
+            font-size: 24px;
+            color: #f7c948;
+            position: absolute;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 1;
+            font-weight: bold;
+        }
+        #header .logo-mobile sup {
+            font-size: 12px;
+            color: #fff;
+            margin-right: 5px;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        section:not(#header) {
+            padding: 80px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        section h2 {
+            text-align: center;
+            margin-bottom: 40px;
+            color: #1a2b49;
+            font-size: 32px;
+            position: relative;
+        }
+        section h2::after {
+            content: '';
+            width: 50px;
+            height: 3px;
+            background: #f7c948;
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        #about {
+            background: #fff;
+            border-radius: 10px;
+            padding: 40px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            position: relative;
+            margin-top: -100px !important;
+            z-index: 2;
+        }
+        #about p {
+            text-align: justify;
+            font-size: 18px;
+            color: #555;
+        }
+        #stats {
+            padding: 40px 20px;
+        }
+        #stats .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            text-align: center;
+        }
+        #stats .stats-grid div {
+            background: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        #stats .stats-grid h3 {
+            color: #1a2b49;
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+        #stats .stats-grid p {
+            color: #555;
+            font-size: 16px;
+        }
+        #why-us {
+            background: #fff;
+            border-radius: 10px;
+            padding: 40px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        #why-us ul {
+            list-style: none;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 25px;
+        }
+        #why-us ul li {
+            background: #1a2b49;
+            color: white;
+            padding: 20px;
+            border-radius: 8px;
+            text-align: center;
+            font-size: 18px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
+        }
+        #why-us ul li::before {
+            content: '✔';
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            color: #f7c948;
+            font-size: 20px;
+        }
+        #why-us ul li:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+        #services {
+            background: transparent;
+        }
+        #services ul {
+            list-style: none;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            grid-template-rows: repeat(2, auto);
+            gap: 25px;
+        }
+        #services ul li {
+            background: #fff;
+            padding: 25px;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        #services ul li:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+        }
+        #contact {
+            background: #1a2b49;
+            color: #fff;
+            border-radius: 10px;
+            padding: 50px;
+            position: relative;
+        }
+        #contact h2, #contact p {
+            position: relative;
+            color: #fff;
+        }
+        #contact p {
+            text-align: center;
+            font-size: 18px;
+            margin: 15px 0;
+            opacity: 0.9;
+        }
+        #contact p:hover {
+            opacity: 1;
+            color: #f7c948;
+            transition: all 0.3s ease;
+        }
+        #contact a {
+            color: #f7c948;
+            text-decoration: none;
+        }
+        #contact a:hover {
+            color: #fff;
+        }
+        @media (max-width: 768px) {
+            .menu-toggle {
+                display: block;
+                margin-right: 20px;
+            }
+            nav ul {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 60px;
+                right: 0;
+                width: 100%;
+                background: #1a2b49;
+                padding: 20px;
+                box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            }
+            nav ul.active {
+                display: flex;
+            }
+            .nav-container {
+                justify-content: space-between;
+                margin-left: 0;
+                margin-right: 0;
+            }
+            .logo {
+                position: absolute;
+                transform: translateX(-50%);
+            }
+            #header h1 {
+                font-size: 28px;
+            }
+            #stats .stats-grid {
+                grid-template-columns: 1fr;
+            }
+            #why-us ul {
+                grid-template-columns: 1fr;
+            }
+            #services ul {
+                grid-template-columns: repeat(2, 1fr);
+                grid-template-rows: repeat(4, auto);
+            }
+            section:not(#header) {
+                padding: 40px 15px;
+            }
+            #about {
+                margin-top: -50px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            #services ul {
+                grid-template-columns: 1fr;
+                grid-template-rows: repeat(8, auto);
+            }
+            #header h1 {
+                font-size: 24px;
+            }
+        }
+        html {
+            scroll-behavior: smooth;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="nav-container">
+            <a href="https://saha.co.ir" class="logo">ساها <sup>(سراج افروز هکمتان آذرخش)</sup></a>
+            <ul id="nav-menu">
+                <li><a href="#about">درباره ما</a></li>
+                <li><a href="#services">خدمات</a></li>
+                <li><a href="#contact">تماس با ما</a></li>
+            </ul>
+            <div class="menu-toggle">☰</div>
+        </div>
+    </nav>
+    <section id="header">
+        <h1>سراج افروز هکمتان آذرخش</h1>
+    </section>
+    <section id="about">
+        <h2>درباره ما</h2>
+        <p>شرکت سراج افروز همدان آذرخش(ساها) با بیش از ۱۰ سال تجربه در زمینه نیرو‌رسانی برق، خدماتی مطمئن و باکیفیت ارائه می‌دهد. ما متعهد به تأمین برق پایدار و ایمن برای خانه‌ها، صنایع و پروژه‌های بزرگ هستیم و با تکیه بر تخصص و تعهد، همراه شما در مسیر توسعه هستیم.</p>
+    </section>
+    <section id="stats">
+        <div class="stats-grid">
+            <div>
+                <h3>۱۵+</h3>
+                <p>سال سابقه فعالیت</p>
+            </div>
+            <div>
+                <h3>۵۰۰+</h3>
+                <p>تعداد پروژه‌های انجام‌شده</p>
+            </div>
+            <div>
+                <h3>۹۵٪</h3>
+                <p>مشتریان راضی</p>
+            </div>
+        </div>
+    </section>
+    <section id="why-us">
+        <h2>چرا ما؟</h2>
+        <ul>
+            <li>تیم متخصص و با تجربه</li>
+            <li>استفاده از تجهیزات مدرن</li>
+            <li>پشتیبانی سریع و مطمئن</li>
+            <li>قیمت‌های رقابتی</li>
+        </ul>
+    </section>
+    <section id="services">
+        <h2>خدمات ما</h2>
+        <ul>
+            <li>نصب و راه‌اندازی تأسیسات برقی</li>
+            <li>تعمیر و نگهداری شبکه‌های برق</li>
+            <li>طراحی سیستم‌های نیرو‌رسانی</li>
+            <li>پشتیبانی ۲۴ ساعته</li>
+            <li>نصب سیستم‌های برق اضطراری</li>
+            <li>بهینه‌سازی مصرف انرژی</li>
+            <li>تأمین تجهیزات برقی</li>
+            <li>اجرای پروژه‌های صنعتی</li>
+        </ul>
+    </section>
+    <section id="contact">
+        <h2>تماس با ما</h2>
+        <p>تلفن: <a href="tel:09187089668">۰۹۱۸۷۰۸۹۶۶۸</a> - <a href="tel:09189010158">۰۹۱۸۹۰۱۰۱۵۸</a></p>
+        <p>ایمیل: <a href="mailto:info@saha.co.ir">info@saha.co.ir</a></p>
+        <p>آدرس: همدان، شهرستان بهار</p>
+    </section>
+
+    <script>
+        const menuToggle = document.querySelector('.menu-toggle');
+        const navMenu = document.querySelector('#nav-menu');
+
+        menuToggle.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+        });
+    </script>
+</body>
+</html>
