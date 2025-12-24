@@ -1,3 +1,14 @@
+
+@font-face {
+    font-family: 'Vazirmatn';
+    src: url('Vazirmatn.woff2') format('woff2-variations'),
+    /* will be the standard and works in Safari now */
+    url('Vazirmatn.woff2') format('woff2');
+    /* for the other supporting browsers */
+    font-weight: 100 900;
+    font-display: swap;
+}
+
 /* =========================================
    1. VARIABLES & RESET (GLOBAL)
    ========================================= */
