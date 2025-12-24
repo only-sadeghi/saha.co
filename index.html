@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="fa" dir="rtl">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -16,21 +17,31 @@
     <meta property="twitter:description" content="مشاوره، طراحی و اجرای صفر تا صد پروژه‌های برق قدرت و تاسیسات شبکه‌های توزیع در شهرستان بهار.">
     <meta property="twitter:image" content="assets/social-cover.webp">
     <link rel="icon" href="assets/favicon.ico" type="image/x-icon">
+
     <link rel="stylesheet" href="assets/style.css">
 </head>
+
 <body>
 
+    <!-- 1. Global Grid & Ambient FX -->
     <div class="grid-bg"></div>
     <div class="bg-noise"></div>
     <div class="ambient-glow glow-1"></div>
     <div class="ambient-glow glow-2"></div>
 
-    <nav class="navbar glass" id="mainNav">
+    <!-- Navigation -->
+    <nav class="navbar" id="mainNav">
         <div class="container nav-content">
             <div class="nav-right">
                 <a href="#" class="brand" onclick="window.scrollTo({ top: 0, behavior: 'smooth' }); return false;">
-                    <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#fbbf24" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                        <path d="M13 2L3 14h9l-1 8 10-12h-9l1-10z"/>
+                    <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#fbbf24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <defs>
+                            <linearGradient id="goldGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" style="stop-color:#FDE68A" />
+                                <stop offset="100%" style="stop-color:#D97706" />
+                            </linearGradient>
+                        </defs>
+                        <path stroke="url(#goldGradient)" d="M13 2L3 14h9l-1 8 10-12h-9l1-10z"/>
                     </svg>
                     <span class="brand-name">ساها</span>
                 </a>
@@ -41,13 +52,15 @@
                     <a href="#contact" class="nav-link">اطلاعات تماس</a>
                 </div>
             </div>
-            <a href="#contact" class="btn-nav">درخواست پروژه</a>
+            <a href="#contact" class="btn-primary" style="padding: 10px 24px; font-size: 0.9rem;">درخواست پروژه</a>
         </div>
     </nav>
 
     <main>
+        <!-- Hero Section -->
         <section class="hero-section">
-            
+
+            <!-- 2. Restored Animated SVG -->
             <div class="hero-tech-bg">
                 <svg viewBox="0 0 1440 800" preserveAspectRatio="xMidYMid slice" class="circuit-svg">
                     <defs>
@@ -55,221 +68,253 @@
                             <circle cx="2" cy="2" r="1" fill="#fbbf24" opacity="0.1"/>
                         </pattern>
                     </defs>
-                    <rect width="100%" height="100%" fill="url(#dot-grid)" />
+                    <rect width="100%" height="100%" fill="url(#dot-grid)" opacity="0.5" />
 
+                    <!-- Paths -->
                     <path d="M100,0 V250 L350,500 V800" id="path1" class="trace"/>
-                    <circle cx="100" cy="250" r="4" class="node" />
-                    <circle cx="350" cy="500" r="4" class="node" />
+                    <circle cx="100" cy="250" r="3" class="node" />
+                    <circle cx="350" cy="500" r="3" class="node" />
                     
                     <path d="M1300,0 V150 L1000,450 V800" id="path2" class="trace"/>
-                    <circle cx="1300" cy="150" r="4" class="node" />
-                    <circle cx="1000" cy="450" r="4" class="node" />
+                    <circle cx="1300" cy="150" r="3" class="node" />
+                    <circle cx="1000" cy="450" r="3" class="node" />
 
                     <path d="M0,600 H200 L400,750 H1000 L1200,600 H1440" id="path3" class="trace"/>
-                    <circle cx="200" cy="600" r="4" class="node" />
-                    <circle cx="400" cy="750" r="4" class="node" />
-                    <circle cx="1200" cy="600" r="4" class="node" />
+                    <circle cx="200" cy="600" r="3" class="node" />
+                    <circle cx="400" cy="750" r="3" class="node" />
+                    <circle cx="1200" cy="600" r="3" class="node" />
 
-                    <path d="M400,0 V100 H1000 V0" id="path4" class="trace"/>
-                    <circle cx="400" cy="100" r="4" class="node" />
-                    <circle cx="1000" cy="100" r="4" class="node" />
-
-                    <circle r="4" class="packet">
+                    <!-- Moving Packets -->
+                    <circle r="3" class="packet">
                         <animateMotion dur="6s" repeatCount="indefinite">
                             <mpath href="#path1"/>
                         </animateMotion>
                     </circle>
                     
-                    <circle r="4" class="packet">
+                    <circle r="3" class="packet">
                         <animateMotion dur="8s" repeatCount="indefinite" begin="1s">
                             <mpath href="#path2"/>
                         </animateMotion>
                     </circle>
 
-                    <circle r="4" class="packet">
+                    <circle r="3" class="packet">
                         <animateMotion dur="10s" repeatCount="indefinite" begin="2s">
                             <mpath href="#path3"/>
-                        </animateMotion>
-                    </circle>
-
-                    <circle r="4" class="packet">
-                        <animateMotion dur="7s" repeatCount="indefinite">
-                            <mpath href="#path4"/>
                         </animateMotion>
                     </circle>
                 </svg>
             </div>
 
             <div class="container hero-content-wrapper">
-                <div class="hero-text">
+                <div class="hero-text reveal">
                     <div class="badge">پیمانکار رتبه یک نیرو</div>
                     <h1>
                         سراج افروز هکمتان آذرخش<br>
-                        <span class="text-glow">متخصص نیرورسانی</span>
+                        <span class="text-gold text-glow">آینده‌ای روشن و پایدار</span>
                     </h1>
                     <p class="hero-desc">
-                        شرکت سراج افروز هکمتان آذرخش (ساها) با بیش از ۱۵ سال تجربه، متعهد به ارائه راهکارهای پایدار، ایمن و نوین در تامین و اجرای تاسیسات برق قدرت برای پروژه‌های خانگی، صنعتی و عمرانی است.
+                        با بیش از ۱۵ سال تجربه، ما هنر مهندسی برق را با استانداردهای جهانی ترکیب می‌کنیم تا راهکارهای ایمن و هوشمند برای پروژه‌های صنعتی و ساختمانی شما خلق کنیم.
                     </p>
                     <div class="hero-actions">
-                        <a href="#contact" class="btn-primary">درخواست پروژه</a>
-                        <a href="#services" class="btn-outline">مشاهده خدمات</a>
+                        <a href="#contact" class="btn-primary">شروع همکاری</a>
+                        <a href="#services" class="btn-outline">خدمات ما</a>
                     </div>
                 </div>
-                
-                <div class="hero-visual">
-                    <div class="glass-card stat-card float-anim">
-                        <div class="stat-row">
-                            <span class="stat-val text-yellow">۱۰,۰۰۰+</span>
-                            <span class="stat-lbl">پروژه موفق</span>
+
+                <div class="hero-visual reveal" style="transition-delay: 0.2s;">
+                    <div class="glass-card stat-card">
+                        <div class="stat-row text-center">
+                            <span class="stat-val">۱۰,۰۰۰+</span>
+                            <span class="stat-lbl">پروژه موفق اجرایی</span>
                         </div>
-                        <div class="stat-divider"></div>
-                        <div class="stat-row">
-                            <span class="stat-val text-blue">۱۵+</span>
-                            <span class="stat-lbl">سال تجربه و مهارت</span>
+                        <div style="height: 1px; background: rgba(255,255,255,0.1); margin: 30px 0;"></div>
+                        <div class="stat-row text-center">
+                            <span class="stat-val">۱۵+</span>
+                            <span class="stat-lbl">سال تجربه مهندسی</span>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <div class="marquee-wrapper glass">
+        <!-- 3. Restored Marquee with Spark Icon -->
+        <div class="marquee-wrapper">
             <div class="marquee-track" id="marqueeTrack">
                 <div class="client-grp">
-                    <span>شرکت توزیع برق</span> <svg class="sep-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-10z"/></svg> 
-                    <span>شهرداری بهار</span> <svg class="sep-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-10z"/></svg> 
-                    <span>مجتمع چینی نام</span> <svg class="sep-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-10z"/></svg> 
-                    <span>مجتمع خلیج فارس</span> <svg class="sep-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-10z"/></svg> 
-                    <span>سازمان نوسازی</span> <svg class="sep-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-10z"/></svg> 
-                    <span>امور آب و فاضلاب</span> <svg class="sep-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-10z"/></svg> 
+                    <span>شرکت توزیع برق</span>
+                    <svg class="sep-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-10z"/></svg>
+
+                    <span>شهرداری بهار</span>
+                    <svg class="sep-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-10z"/></svg>
+
+                    <span>شرکت چینی نام</span>
+                    <svg class="sep-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-10z"/></svg>
+
+                    <span>آب و فاضلاب بهار</span>
+                    <svg class="sep-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-10z"/></svg>
+
+                    <span>سازمان نوسازی</span>
+                    <svg class="sep-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-10z"/></svg>
+
+                    <span>برج‌های آسمان</span>
+                    <svg class="sep-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-10z"/></svg>
                 </div>
             </div>
         </div>
 
+        <!-- About -->
         <section id="about" class="section container">
-            <div class="row-layout">
-                <div class="col-text">
+            <div class="row-layout" style="display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 60px; align-items: center;">
+                <div class="col-text reveal">
                     <h2 class="section-title">درباره ما</h2>
-                    <p class="text-justify">
-                        شرکت سراج افروز هکمتان آذرخش(ساها) به شماره ثبت ۱۰۳۶ با بیش از ۱۰ سال تجربه در زمینه نیرو‌رسانی برق، خدماتی مطمئن و باکیفیت ارائه می‌دهد. ما متعهد به تأمین برق پایدار و ایمن برای خانه‌ها، صنایع و پروژه‌های بزرگ هستیم و با تکیه بر تخصص و تعهد، همراه شما در مسیر توسعه هستیم.
+                    <p class="text-justify" style="font-size: 1.1rem; color: #d1d5db;">
+                        شرکت سراج افروز هکمتان آذرخش(ساها) به شماره ثبت ۱۰۳۶، نمادی از اعتماد و تخصص در صنعت برق کشور است. ما با تلفیق دانش روز مهندسی و تجربه اجرایی، زیرساخت‌هایی خلق می‌کنیم که نه تنها نیاز امروز، بلکه پایداری فردا را تضمین می‌کنند.
                     </p>
-                    <p class="text-justify mt-4 text-muted">
-                        تیم ما متشکل از مهندسین و تکنسین‌های کارآزموده و متعهد است که ایمنی و کیفیت را در اولویت کاری خود قرار می‌دهند.
+                    <p class="mt-4 text-muted">
+                        تعهد ما به کیفیت، ایمنی (HSE) و زمان‌بندی دقیق، ما را به شریکی مطمئن برای صنایع بزرگ و پروژه‌های ملی تبدیل کرده است.
                     </p>
                 </div>
-                <div class="col-visual">
-                    <div class="glass-card about-card float-anim-delayed">
+                <div class="col-visual reveal" style="transition-delay: 0.2s;">
+                    <div class="glass-card about-card">
                         <div class="icon-circle">
-                            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#fbbf24" stroke-width="2"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
                         </div>
-                        <h3>عضو رسمی</h3>
-                        <p>انجمن پیمانکاران و مهندسین برق</p>
-                        <div class="glow-line"></div>
+                        <h3 style="font-size: 1.5rem; margin-bottom: 10px;">عضو رسمی</h3>
+                        <p class="text-muted">انجمن پیمانکاران و مهندسین برق</p>
                     </div>
                 </div>
             </div>
         </section>
 
+        <!-- Services -->
         <section id="services" class="section container">
-            <h2 class="section-title mb-large">خدمات ما</h2>
-            
-            <div class="service-row glass-card">
-                <div class="s-icon-box">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
-                </div>
-                <div class="s-content">
-                    <h3>طراحی سیستم‌های نیرورسانی</h3>
-                    <p>طراحی دقیق و نوین سیستم‌های برق‌رسانی خانگی و صنعتی بر اساس استانداردهای ملی و بین‌المللی. متخصصان ما با بهره‌گیری از تجربه و مهارت خود، راهکارهایی بهینه، ایمن و مقرون‌به‌صرفه ارائه می‌دهد تا نیازهای انرژی پروژه‌های شما را به بهترین شکل برآورده سازد.</p>
-                </div>
+            <div class="reveal">
+                <h2 class="section-title">خدمات تخصصی</h2>
+                <p class="text-muted">راهکارهای جامع مهندسی صنعت برق قدرت</p>
             </div>
 
-            <div class="service-row glass-card">
-                <div class="s-icon-box">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
+            <div class="service-grid">
+                <!-- Service 1 -->
+                <div class="glass-card service-card reveal" style="transition-delay: 0.1s;">
+                    <div class="s-icon-box">
+                        <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+                    </div>
+                    <div class="s-content">
+                        <h3>طراحی و مهندسی</h3>
+                        <p class="text-muted text-justify">ارائه نقشه‌های دقیق و محاسبات فنی سیستم‌های برق‌رسانی فشار ضعیف، متوسط و قوی مطابق با آخرین استانداردهای IEC و ملی.</p>
+                    </div>
                 </div>
-                <div class="s-content">
-                    <h3>نصب و راه‌اندازی تاسیسات برقی</h3>
-                    <p>اجرای حرفه‌ای نصب تاسیسات الکتریکی در پروژه‌های مسکونی، تجاری و صنعتی توسط پیمانکار رتبه یک نیرو. ما با استفاده از تجهیزات مدرن و نیروی متخصص، فرآیند راه‌اندازی را سریع، ایمن و مطابق با مقررات و استانداردهای ملی انجام می‌دهیم تا سیستم‌های برقی شما بدون وقفه عملیاتی شوند.</p>
-                </div>
-            </div>
 
-            <div class="service-row glass-card">
-                <div class="s-icon-box">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                <!-- Service 2 -->
+                <div class="glass-card service-card reveal" style="transition-delay: 0.2s;">
+                    <div class="s-icon-box">
+                        <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
+                    </div>
+                    <div class="s-content">
+                        <h3>نصب و اجرا</h3>
+                        <p class="text-muted text-justify">اجرای صفر تا صد پست‌های برق، تابلوهای فرمان، کابل‌کشی صنعتی و سیستم‌های روشنایی با بالاترین دقت و کیفیت تجهیزات.</p>
+                    </div>
                 </div>
-                <div class="s-content">
-                    <h3>تعمیر و نگهداری شبکه‌های توزیع</h3>
-                    <p>خدمات تخصصی تعمیر، نگهداری و ارتقای شبکه‌های توزیع برق برای اطمینان از پایداری و ایمنی مداوم. شرکت ما با تیم واکنش سریع و تجهیزات مناسب، مشکلات را به حداقل رسانده و عملکرد بهینه شبکه را برای مشتریان خانگی و صنعتی تضمین می‌نماید.</p>
+
+                <!-- Service 3 -->
+                <div class="glass-card service-card reveal" style="transition-delay: 0.3s;">
+                    <div class="s-icon-box">
+                        <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                    </div>
+                    <div class="s-content">
+                        <h3>نگهداری و پایش</h3>
+                        <p class="text-muted text-justify">سرویس‌های دوره‌ای، عیب‌یابی و بهینه‌سازی مصرف انرژی برای تضمین تداوم فعالیت صنایع و مجموعه‌های بزرگ.</p>
+                    </div>
                 </div>
             </div>
         </section>
 
+        <!-- Process -->
         <section id="process" class="section container">
-            <h2 class="section-title text-center">روند انجام پروژه</h2>
-            
-            <div class="process-tabs">
+            <h2 class="section-title text-center reveal">مسیر پروژه</h2>
+
+            <div class="process-tabs reveal">
+
                 <div class="p-tab active" onclick="setStep(0)">
-                    <div class="p-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></div>
-                    <h4>۱. مشاوره</h4>
+                    <div class="p-icon">
+                        <svg width="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+                                </svg>
+                    </div>
+                    <h4>مشاوره</h4>
                 </div>
-                <div class="p-line"></div>
+
+                <div class="p-line" id="line-0"></div>
+
                 <div class="p-tab" onclick="setStep(1)">
-                    <div class="p-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg></div>
-                    <h4>۲. بازدید</h4>
+                    <div class="p-icon">
+                        <svg width="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/>
+                                    <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/>
+                                </svg>
+                    </div>
+                    <h4>بازدید فنی</h4>
                 </div>
-                <div class="p-line"></div>
+
+                <div class="p-line" id="line-1"></div>
+
                 <div class="p-tab" onclick="setStep(2)">
-                    <div class="p-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg></div>
-                    <h4>۳. اجرا</h4>
+                    <div class="p-icon">
+                        <svg width="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <polyline points="20 6 9 17 4 12"/>
+                                </svg>
+                    </div>
+                    <h4>اجرا</h4>
                 </div>
             </div>
 
-            <div class="process-text-container">
-                <p id="process-desc">در حال بارگذاری...</p>
+            <div class="process-text-container reveal">
+                <p id="process-desc" style="font-size: 1.1rem; min-height: 80px;">در حال بارگذاری...</p>
             </div>
         </section>
 
+        <!-- Contact -->
         <section id="contact" class="section container mb-large">
-            <div class="contact-box glass-card glow-border">
+            <div class="contact-box glass-card reveal">
                 <div class="contact-header">
-                    <h2>ارتباط با ما</h2>
-                    <p>برای مشاوره فنی و استعلام قیمت تماس بگیرید.</p>
+                    <h2 class="section-title text-center">ارتباط با ما</h2>
+                    <p class="text-muted text-center">برای مشاوره تخصصی و استعلام قیمت، کارشناسان ما آماده پاسخگویی هستند.</p>
                 </div>
 
-                <div class="contact-grid-custom">
-                    <div class="phones-row">
+                <div class="contact-grid-custom" style="margin-top: 40px;">
+                    <div class="phones-row" style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
                         <a href="tel:09187089668" class="c-item">
-                            <div class="c-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg></div>
+                            <div class="c-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg></div>
                             <div class="c-info">
-                                <span class="label">خط ویژه</span>
-                                <span class="value ltr">۰۹۱۸ ۷۰۸ ۹۶ ۶۸</span>
+                                <span class="label">خط ویژه مدیریت</span>
+                                <span class="value ltr" style="color:#fff;">۰۹۱۸ ۷۰۸ ۹۶ ۶۸</span>
                             </div>
                         </a>
                         <a href="tel:09189010158" class="c-item">
-                            <div class="c-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg></div>
+                            <div class="c-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg></div>
                             <div class="c-info">
-                                <span class="label">کارشناس فنی</span>
-                                <span class="value ltr">۰۹۱۸ ۹۰۱۰ ۱۵۸</span>
+                                <span class="label">مشاوره فنی</span>
+                                <span class="value ltr" style="color:#fff;">۰۹۱۸ ۹۰۱۰ ۱۵۸</span>
                             </div>
                         </a>
                     </div>
 
-                    <a href="mailto:info@saha.co.ir" class="c-item full-width">
-                        <div class="c-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div>
+                    <a href="mailto:info@saha.co.ir" class="c-item full-width" style="margin-top: 20px;">
+                        <div class="c-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div>
                         <div class="c-info">
-                            <span class="label">ایمیل سازمانی</span>
-                            <span class="value">info@saha.co.ir</span>
+                            <span class="label">پست الکترونیک</span>
+                            <span class="value" style="color:#fff;">info@saha.co.ir</span>
                         </div>
                     </a>
 
-                    <a href="https://maps.app.goo.gl/hwDKZh5pLxhHxgh5A" target="_blank" class="c-item full-width address-item">
-                        <div class="c-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
+                    <div class="c-item full-width address-item" style="margin-top: 20px;">
+                        <div class="c-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
                         <div class="c-info">
-                            <span class="label">آدرس</span>
-                            <span class="value">همدان، شهرستان بهار، بلوار معلم</span>
+                            <span class="label">دفتر مرکزی</span>
+                            <span class="value" style="color:#fff;">همدان، شهرستان بهار، بلوار معلم</span>
                         </div>
-                    </a>
+                    </div>
                 </div>
-
                 <div class="work-hours">
                     <span class="status-indicator online"></span>
                     ساعات کاری: شنبه تا پنج‌شنبه (۸:۰۰ الی ۱۷:۰۰)
@@ -283,11 +328,11 @@
                     <p>© ۱۴۰۴ تمامی حقوق برای شرکت <strong>سراج افروز هکمتان آذرخش</strong> محفوظ است.</p>
                 </div>
                 <div class="footer-left">
-                    <a href="#">تلگرام</a>
-                    <span class="sep">|</span>
-                    <a href="#">اینستاگرام</a>
-                    <span class="sep">|</span>
                     <a href="#">لینکدین</a>
+                    <span class="sep" style="margin: 0 10px;">|</span>
+                    <a href="#">تلگرام</a>
+                    <span class="sep" style="margin: 0 10px;">|</span>
+                    <a href="#">اینستاگرام</a>
                 </div>
             </div>
         </footer>
