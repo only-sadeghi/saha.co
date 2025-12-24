@@ -419,13 +419,13 @@ h1 {
 
 .stat-val {
     display: block;
-    font-size: 2rem;
+    font-size: 3rem;
     font-weight: 800;
-    line-height: 1;
+    line-height: 1.2;
 }
 
 .stat-lbl {
-    font-size: 0.8rem;
+    font-size: 0.9rem;
     color: var(--text-muted);
 }
 
