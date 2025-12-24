@@ -3,408 +3,448 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>سراج افروز هکمتان آذرخش (ساها)</title>
     <meta name="google-site-verification" content="YNp39v85JshU7CmTsoWrgZIp81YvyVFEeH6BS7BIMzA" />
-    <title>سراج افروز هکمتان آذرخش</title>
-    <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@100..900&display=swap" rel="stylesheet">
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: Vazirmatn, Arial, sans-serif;
-        }
-        body {
-            line-height: 2;
-            color: #333;
-            background-color: #f9f9f9;
-            direction: rtl;
-        }
-        nav {
-            background: linear-gradient(90deg, #1a2b49, #2e4372);
-            position: fixed;
-            width: 100%;
-            top: 0;
-            z-index: 100;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
-            padding: 15px 20px;
-        }
-        .nav-container {
-            display: flex;
-            justify-content: flex-start;
-            align-items: center;
-            max-width: 1200px;
-            margin-left: auto;
-            margin-right: calc((100% - 1200px) / 2);
-            gap: 20px;
-        }
-        .logo {
-            color: #f7c948;
-            font-size: 24px;
-            font-weight: bold;
-            text-decoration: none;
-            display: flex;
-            align-items: baseline;
-        }
-        .logo sup {
-            font-size: 12px;
-            color: #fff;
-            margin-right: 5px;
-        }
-        nav ul {
-            list-style: none;
-            display: flex;
-            gap: 25px;
-        }
-        nav ul li a {
-            color: #fff;
-            text-decoration: none;
-            font-size: 18px;
-            padding: 5px 10px;
-            transition: all 0.3s ease;
-        }
-        nav ul li a:hover {
-            color: #f7c948;
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 5px;
-        }
-        .menu-toggle {
-            display: none;
-            font-size: 30px;
-            color: #fff;
-            cursor: pointer;
-        }
-        #header {
-            height: 60vh;
-            width: 100vw;
-            margin: 0;
-            padding: 0;
-            background-image: url('background.webp');
-            background-size: cover;
-            background-position: center;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            color: white;
-            position: relative;
-            left: 0;
-        }
-        #header::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.6);
-        }
-        #header h1 {
-            font-size: 40px;
-            position: relative;
-            z-index: 1;
-            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
-            animation: fadeIn 1.5s ease-in;
-        }
-        #header .logo-mobile {
-            display: none;
-            font-size: 24px;
-            color: #f7c948;
-            position: absolute;
-            top: 20px;
-            left: 50%;
-            transform: translateX(-50%);
-            z-index: 1;
-            font-weight: bold;
-        }
-        #header .logo-mobile sup {
-            font-size: 12px;
-            color: #fff;
-            margin-right: 5px;
-        }
+    <meta name="description" content="شرکت سراج افروز هکمتان آذرخش (ساها)؛ پیمانکار برق قدرت در شهرستان بهار. ارائه‌دهنده خدمات تخصصی مشاوره، طراحی و اجرای تاسیسات برق قدرت و شبکه‌های توزیع صنعتی و خانگی.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://saha.co.ir/">
+    <meta property="og:title" content="سراج افروز هکمتان آذرخش (ساها)">
+    <meta property="og:description" content="شرکت سراج افروز هکمتان آذرخش (ساها)؛ پیمانکار برق قدرت در شهرستان بهار. ارائه‌دهنده خدمات تخصصی مشاوره، طراحی و اجرای تاسیسات برق قدرت و شبکه‌های توزیع صنعتی و خانگی.">
+    <meta property="og:image" content="assets/social-cover.webp">
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:title" content="شرکت سراج افروز هکمتان آذرخش (ساها)">
+    <meta property="twitter:description" content="مشاوره، طراحی و اجرای صفر تا صد پروژه‌های برق قدرت و تاسیسات شبکه‌های توزیع در شهرستان بهار.">
+    <meta property="twitter:image" content="assets/social-cover.webp">
 
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(-20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-        section:not(#header) {
-            padding: 80px 20px;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-        section h2 {
-            text-align: center;
-            margin-bottom: 40px;
-            color: #1a2b49;
-            font-size: 32px;
-            position: relative;
-        }
-        section h2::after {
-            content: '';
-            width: 50px;
-            height: 3px;
-            background: #f7c948;
-            position: absolute;
-            bottom: -10px;
-            left: 50%;
-            transform: translateX(-50%);
-        }
-        #about {
-            background: #fff;
-            border-radius: 10px;
-            padding: 40px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-            position: relative;
-            margin-top: -100px !important;
-            z-index: 2;
-        }
-        #about p {
-            text-align: justify;
-            font-size: 18px;
-            color: #555;
-        }
-        #stats {
-            padding: 40px 20px;
-        }
-        #stats .stats-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 20px;
-            text-align: center;
-        }
-        #stats .stats-grid div {
-            background: #fff;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-        }
-        #stats .stats-grid h3 {
-            color: #1a2b49;
-            font-size: 24px;
-            margin-bottom: 10px;
-        }
-        #stats .stats-grid p {
-            color: #555;
-            font-size: 16px;
-        }
-        #why-us {
-            background: #fff;
-            border-radius: 10px;
-            padding: 40px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-        }
-        #why-us ul {
-            list-style: none;
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 25px;
-        }
-        #why-us ul li {
-            background: #1a2b49;
-            color: white;
-            padding: 20px;
-            border-radius: 8px;
-            text-align: center;
-            font-size: 18px;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            position: relative;
-        }
-        #why-us ul li::before {
-            content: '✔';
-            position: absolute;
-            top: 10px;
-            right: 10px;
-            color: #f7c948;
-            font-size: 20px;
-        }
-        #why-us ul li:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-        }
-        #services {
-            background: transparent;
-        }
-        #services ul {
-            list-style: none;
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            grid-template-rows: repeat(2, auto);
-            gap: 25px;
-        }
-        #services ul li {
-            background: #fff;
-            padding: 25px;
-            border-radius: 10px;
-            text-align: center;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-        #services ul li:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
-        }
-        #contact {
-            background: #1a2b49;
-            color: #fff;
-            border-radius: 10px 10px 0 0;
-            padding: 50px;
-            position: relative;
-        }
-        #contact h2, #contact p {
-            position: relative;
-            color: #fff;
-        }
-        #contact p {
-            text-align: center;
-            font-size: 18px;
-            margin: 15px 0;
-            opacity: 0.9;
-        }
-        #contact p:hover {
-            opacity: 1;
-            color: #f7c948;
-            transition: all 0.3s ease;
-        }
-        #contact a {
-            color: #f7c948;
-            text-decoration: none;
-        }
-        #contact a:hover {
-            color: #fff;
-        }
-        @media (max-width: 768px) {
-            .menu-toggle {
-                display: block;
-                margin-right: 20px;
-            }
-            nav ul {
-                display: none;
-                flex-direction: column;
-                position: absolute;
-                top: 60px;
-                right: 0;
-                width: 100%;
-                background: #1a2b49;
-                padding: 20px;
-                box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-            }
-            nav ul.active {
-                display: flex;
-            }
-            .nav-container {
-                justify-content: space-between;
-                margin-left: 0;
-                margin-right: 0;
-            }
-            .logo {
-                position: absolute;
-                transform: translateX(-50%);
-            }
-            #header h1 {
-                font-size: 28px;
-            }
-            #stats .stats-grid {
-                grid-template-columns: 1fr;
-            }
-            #why-us ul {
-                grid-template-columns: 1fr;
-            }
-            #services ul {
-                grid-template-columns: repeat(2, 1fr);
-                grid-template-rows: repeat(4, auto);
-            }
-            section:not(#header) {
-                padding: 40px 15px;
-            }
-            #about {
-                margin-top: -50px;
-            }
-        }
-
-        @media (max-width: 480px) {
-            #services ul {
-                grid-template-columns: 1fr;
-                grid-template-rows: repeat(8, auto);
-            }
-            #header h1 {
-                font-size: 24px;
-            }
-        }
-        html {
-            scroll-behavior: smooth;
-        }
-    </style>
+    <link rel="stylesheet" href="assets/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@100;300;500;700;900&display=swap" rel="stylesheet">
 </head>
 <body>
-    <nav>
-        <div class="nav-container">
-            <a href="https://saha.co.ir" class="logo">ساها <sup>(سراج افروز هکمتان آذرخش)</sup></a>
-            <ul id="nav-menu">
-                <li><a href="#about">درباره ما</a></li>
-                <li><a href="#services">خدمات</a></li>
-                <li><a href="#contact">تماس با ما</a></li>
-            </ul>
-            <div class="menu-toggle">☰</div>
+
+    <div class="grid-bg"></div>
+    <div class="bg-noise"></div>
+    <div class="ambient-glow glow-1"></div>
+    <div class="ambient-glow glow-2"></div>
+
+    <nav class="navbar glass" id="mainNav">
+        <div class="container nav-content">
+            <div class="nav-right">
+                <a href="#" class="brand" onclick="window.scrollTo({ top: 0, behavior: 'smooth' }); return false;">
+                    <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#fbbf24" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M13 2L3 14h9l-1 8 10-12h-9l1-10z"/>
+                    </svg>
+                    <span class="brand-name">ساها</span>
+                </a>
+                <div class="nav-links">
+                    <a href="#about" class="nav-link">درباره ما</a>
+                    <a href="#services" class="nav-link">خدمات</a>
+                    <a href="#process" class="nav-link">روند پروژه</a>
+                    <a href="#contact" class="nav-link">اطلاعات تماس</a>
+                </div>
+            </div>
+            <a href="#contact" class="btn-nav">درخواست پروژه</a>
         </div>
     </nav>
-    <section id="header">
-        <h1>سراج افروز هکمتان آذرخش</h1>
-    </section>
-    <section id="about">
-        <h2>درباره ما</h2>
-        <p>شرکت سراج افروز هکمتان آذرخش(ساها) به شماره ثبت ۱۰۳۶ با بیش از ۱۰ سال تجربه در زمینه نیرو‌رسانی برق، خدماتی مطمئن و باکیفیت ارائه می‌دهد. ما متعهد به تأمین برق پایدار و ایمن برای خانه‌ها، صنایع و پروژه‌های بزرگ هستیم و با تکیه بر تخصص و تعهد، همراه شما در مسیر توسعه هستیم.</p>
-    </section>
-    <section id="stats">
-        <div class="stats-grid">
-            <div>
-                <h3>۱۰+</h3>
-                <p>سال سابقه فعالیت</p>
+
+    <main>
+        <section class="hero-section">
+            
+            <div class="hero-tech-bg">
+                <svg viewBox="0 0 1440 800" preserveAspectRatio="xMidYMid slice" class="circuit-svg">
+                    <defs>
+                        <pattern id="dot-grid" x="0" y="0" width="40" height="40" patternUnits="userSpaceOnUse">
+                            <circle cx="2" cy="2" r="1" fill="#fbbf24" opacity="0.1"/>
+                        </pattern>
+                    </defs>
+                    <rect width="100%" height="100%" fill="url(#dot-grid)" />
+
+                    <path d="M100,0 V250 L350,500 V800" id="path1" class="trace"/>
+                    <circle cx="100" cy="250" r="4" class="node" />
+                    <circle cx="350" cy="500" r="4" class="node" />
+                    
+                    <path d="M1300,0 V150 L1000,450 V800" id="path2" class="trace"/>
+                    <circle cx="1300" cy="150" r="4" class="node" />
+                    <circle cx="1000" cy="450" r="4" class="node" />
+
+                    <path d="M0,600 H200 L400,750 H1000 L1200,600 H1440" id="path3" class="trace"/>
+                    <circle cx="200" cy="600" r="4" class="node" />
+                    <circle cx="400" cy="750" r="4" class="node" />
+                    <circle cx="1200" cy="600" r="4" class="node" />
+
+                    <path d="M400,0 V100 H1000 V0" id="path4" class="trace"/>
+                    <circle cx="400" cy="100" r="4" class="node" />
+                    <circle cx="1000" cy="100" r="4" class="node" />
+
+                    <circle r="4" class="packet">
+                        <animateMotion dur="6s" repeatCount="indefinite">
+                            <mpath href="#path1"/>
+                        </animateMotion>
+                    </circle>
+                    
+                    <circle r="4" class="packet">
+                        <animateMotion dur="8s" repeatCount="indefinite" begin="1s">
+                            <mpath href="#path2"/>
+                        </animateMotion>
+                    </circle>
+
+                    <circle r="4" class="packet">
+                        <animateMotion dur="10s" repeatCount="indefinite" begin="2s">
+                            <mpath href="#path3"/>
+                        </animateMotion>
+                    </circle>
+
+                    <circle r="4" class="packet">
+                        <animateMotion dur="7s" repeatCount="indefinite">
+                            <mpath href="#path4"/>
+                        </animateMotion>
+                    </circle>
+                </svg>
             </div>
-            <div>
-                <h3>۱۰۰۰+</h3>
-                <p>تعداد پروژه‌های انجام‌شده</p>
+
+            <div class="container hero-content-wrapper">
+                <div class="hero-text">
+                    <div class="badge">پیمانکار رتبه یک نیرو</div>
+                    <h1>
+                        سراج افروز هکمتان آذرخش<br>
+                        <span class="text-glow">متخصص نیرورسانی</span>
+                    </h1>
+                    <p class="hero-desc">
+                        شرکت سراج افروز هکمتان آذرخش (ساها) با بیش از ۱۵ سال تجربه، متعهد به ارائه راهکارهای پایدار، ایمن و نوین در تامین و اجرای تاسیسات برق قدرت برای پروژه‌های خانگی، صنعتی و عمرانی است.
+                    </p>
+                    <div class="hero-actions">
+                        <a href="#contact" class="btn-primary">درخواست پروژه</a>
+                        <a href="#projects" class="btn-outline">مشاهده خدمات</a>
+                    </div>
+                </div>
+                
+                <div class="hero-visual">
+                    <div class="glass-card stat-card float-anim">
+                        <div class="stat-row">
+                            <span class="stat-val text-yellow">۱۰,۰۰۰+</span>
+                            <span class="stat-lbl">پروژه موفق</span>
+                        </div>
+                        <div class="stat-divider"></div>
+                        <div class="stat-row">
+                            <span class="stat-val text-blue">۱۵+</span>
+                            <span class="stat-lbl">سال تجربه و مهارت</span>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div>
-                <h3>۹۵٪</h3>
-                <p>مشتریان راضی</p>
+        </section>
+
+        <div class="marquee-wrapper glass">
+            <div class="marquee-track" id="marqueeTrack">
+                <div class="client-grp">
+                    <span>شرکت توزیع برق</span> <svg class="sep-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-10z"/></svg> 
+                    <span>شهرداری تهران</span> <svg class="sep-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-10z"/></svg> 
+                    <span>مجتمع فولاد</span> <svg class="sep-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-10z"/></svg> 
+                    <span>پتروشیمی خلیج فارس</span> <svg class="sep-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-10z"/></svg> 
+                    <span>سازمان نوسازی</span> <svg class="sep-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-10z"/></svg> 
+                    <span>برج‌های آسمان</span> <svg class="sep-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-10z"/></svg> 
+                </div>
             </div>
         </div>
-    </section>
-    <section id="why-us">
-        <h2>چرا ما؟</h2>
-        <ul>
-            <li>تیم متخصص و با تجربه</li>
-            <li>استفاده از تجهیزات مدرن</li>
-            <li>پشتیبانی سریع و مطمئن</li>
-            <li>قیمت‌های رقابتی</li>
-        </ul>
-    </section>
-    <section id="services">
-        <h2>خدمات ما</h2>
-        <ul>
-            <li>نصب و راه‌اندازی تأسیسات برقی</li>
-            <li>تعمیر و نگهداری شبکه‌های برق</li>
-            <li>طراحی سیستم‌های نیرو‌رسانی</li>
-            <li>پشتیبانی ۲۴ ساعته</li>
-            <li>نصب سیستم‌های برق اضطراری</li>
-            <li>بهینه‌سازی مصرف انرژی</li>
-            <li>تأمین تجهیزات برقی</li>
-            <li>اجرای پروژه‌های صنعتی</li>
-        </ul>
-    </section>
-    <section id="contact">
-        <h2>تماس با ما</h2>
-        <p>تلفن: <a href="tel:09187089668">۰۹۱۸۷۰۸۹۶۶۸</a> - <a href="tel:09189010158">۰۹۱۸۹۰۱۰۱۵۸</a></p>
-        <p>ایمیل: <a href="mailto:info@saha.co.ir">info@saha.co.ir</a></p>
-        <p>آدرس: همدان، شهرستان بهار</p>
-    </section>
+
+        <section id="about" class="section container">
+            <div class="row-layout">
+                <div class="col-text">
+                    <h2 class="section-title">درباره ساها</h2>
+                    <p class="text-justify">
+                        شرکت سراج افروز هکمتان آذرخش(ساها) به شماره ثبت ۱۰۳۶ با بیش از ۱۰ سال تجربه در زمینه نیرو‌رسانی برق، خدماتی مطمئن و باکیفیت ارائه می‌دهد. ما متعهد به تأمین برق پایدار و ایمن برای خانه‌ها، صنایع و پروژه‌های بزرگ هستیم و با تکیه بر تخصص و تعهد، همراه شما در مسیر توسعه هستیم.
+                    </p>
+                    <p class="text-justify mt-4 text-muted">
+                        تیم ما متشکل از مهندسین و تکنسین‌های کارآزموده و متعهد است که ایمنی و کیفیت را در اولویت کاری خود قرار می‌دهند.
+                    </p>
+                </div>
+                <div class="col-visual">
+                    <div class="glass-card about-card float-anim-delayed">
+                        <div class="icon-circle">
+                            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#fbbf24" stroke-width="2"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                        </div>
+                        <h3>عضو رسمی</h3>
+                        <p>انجمن پیمانکاران و مهندسین برق</p>
+                        <div class="glow-line"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="services" class="section container">
+            <h2 class="section-title mb-large">خدمات ما</h2>
+            
+            <div class="service-row glass-card">
+                <div class="s-icon-box">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+                </div>
+                <div class="s-content">
+                    <h3>طراحی سیستم‌های نیرورسانی</h3>
+                    <p>طراحی دقیق و نوین سیستم‌های برق‌رسانی خانگی و صنعتی بر اساس استانداردهای ملی و بین‌المللی. متخصصان ما با بهره‌گیری از تجربه و مهارت خود، راهکارهایی بهینه، ایمن و مقرون‌به‌صرفه ارائه می‌دهد تا نیازهای انرژی پروژه‌های شما را به بهترین شکل برآورده سازد.</p>
+                </div>
+            </div>
+
+            <div class="service-row glass-card">
+                <div class="s-icon-box">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
+                </div>
+                <div class="s-content">
+                    <h3>نصب و راه‌اندازی تاسیسات برقی</h3>
+                    <p>اجرای حرفه‌ای نصب تاسیسات الکتریکی در پروژه‌های مسکونی، تجاری و صنعتی توسط پیمانکار رتبه یک نیرو. ما با استفاده از تجهیزات مدرن و نیروی متخصص، فرآیند راه‌اندازی را سریع، ایمن و مطابق با مقررات و استانداردهای ملی انجام می‌دهیم تا سیستم‌های برقی شما بدون وقفه عملیاتی شوند.</p>
+                </div>
+            </div>
+
+            <div class="service-row glass-card">
+                <div class="s-icon-box">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                </div>
+                <div class="s-content">
+                    <h3>تعمیر و نگهداری شبکه‌های توزیع</h3>
+                    <p>خدمات تخصصی تعمیر، نگهداری و ارتقای شبکه‌های توزیع برق برای اطمینان از پایداری و ایمنی مداوم. شرکت ما با تیم واکنش سریع و تجهیزات مناسب، مشکلات را به حداقل رسانده و عملکرد بهینه شبکه را برای مشتریان خانگی و صنعتی تضمین می‌نماید.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="process" class="section container">
+            <h2 class="section-title text-center">روند انجام پروژه</h2>
+            
+            <div class="process-tabs">
+                <div class="p-tab active" onclick="setStep(0)">
+                    <div class="p-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></div>
+                    <h4>۱. مشاوره</h4>
+                </div>
+                <div class="p-line"></div>
+                <div class="p-tab" onclick="setStep(1)">
+                    <div class="p-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg></div>
+                    <h4>۲. بازدید</h4>
+                </div>
+                <div class="p-line"></div>
+                <div class="p-tab" onclick="setStep(2)">
+                    <div class="p-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg></div>
+                    <h4>۳. اجرا</h4>
+                </div>
+            </div>
+
+            <div class="process-text-container">
+                <p id="process-desc">در حال بارگذاری...</p>
+            </div>
+        </section>
+
+        <section id="contact" class="section container mb-large">
+            <div class="contact-box glass-card glow-border">
+                <div class="contact-header">
+                    <h2>ارتباط با ما</h2>
+                    <p>برای مشاوره فنی و استعلام قیمت تماس بگیرید.</p>
+                </div>
+
+                <div class="contact-grid-custom">
+                    <div class="phones-row">
+                        <a href="tel:09187089668" class="c-item">
+                            <div class="c-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg></div>
+                            <div class="c-info">
+                                <span class="label">خط ویژه</span>
+                                <span class="value ltr">۰۹۱۸ ۷۰۸ ۹۶ ۶۸</span>
+                            </div>
+                        </a>
+                        <a href="tel:09189010158" class="c-item">
+                            <div class="c-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg></div>
+                            <div class="c-info">
+                                <span class="label">کارشناس فنی</span>
+                                <span class="value ltr">۰۹۱۸ ۹۰۱۰ ۱۵۸</span>
+                            </div>
+                        </a>
+                    </div>
+
+                    <a href="mailto:info@saha.co.ir" class="c-item full-width">
+                        <div class="c-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div>
+                        <div class="c-info">
+                            <span class="label">ایمیل سازمانی</span>
+                            <span class="value">info@saha.co.ir</span>
+                        </div>
+                    </a>
+
+                    <div class="c-item full-width address-item">
+                        <div class="c-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
+                        <div class="c-info">
+                            <span class="label">آدرس</span>
+                            <span class="value">همدان، شهرستان بهار، بلوار معلم</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="work-hours">
+                    <span class="status-indicator online"></span>
+                    ساعات کاری: شنبه تا پنج‌شنبه (۸:۰۰ الی ۱۷:۰۰)
+                </div>
+            </div>
+        </section>
+
+        <footer>
+            <div class="container footer-content">
+                <div class="footer-right">
+                    <p>© ۱۴۰۳ تمامی حقوق برای شرکت <strong>سراج افروز هکمتان آذرخش</strong> محفوظ است.</p>
+                </div>
+                <div class="footer-left">
+                    <a href="#">تلگرام</a>
+                    <span class="sep">|</span>
+                    <a href="#">اینستاگرام</a>
+                    <span class="sep">|</span>
+                    <a href="#">لینکدین</a>
+                </div>
+            </div>
+        </footer>
+    </main>
 
     <script>
-        const menuToggle = document.querySelector('.menu-toggle');
-        const navMenu = document.querySelector('#nav-menu');
+    document.addEventListener('DOMContentLoaded', () => {
+        
+        /* =========================================
+           1. SMART NAVIGATION & SCROLL UX
+           ========================================= */
+        const nav = document.getElementById('mainNav');
+        const sections = document.querySelectorAll('section');
+        const navLinks = document.querySelectorAll('.nav-link');
+        let lastScrollTop = 0;
 
-        menuToggle.addEventListener('click', () => {
-            navMenu.classList.toggle('active');
+        window.addEventListener('scroll', () => {
+            const scrollTop = window.scrollY || document.documentElement.scrollTop;
+
+            // --- Hide/Show Navbar on Scroll ---
+            if (scrollTop > lastScrollTop && scrollTop > 100) {
+                nav.style.transform = 'translateY(-100%)';
+            } else {
+                nav.style.transform = 'translateY(0)';
+            }
+            lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
+
+            // --- Active Menu Highlighting ---
+            let currentSectionId = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                // Offset of 250px helps trigger the active state slightly before full scroll
+                if (scrollTop >= (sectionTop - 250)) {
+                    currentSectionId = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (currentSectionId && link.getAttribute('href').includes(currentSectionId)) {
+                    link.classList.add('active');
+                }
+            });
         });
+
+        /* =========================================
+           2. SMOOTH SCROLL & HASH REMOVAL
+           ========================================= */
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault(); // Prevents # from appearing in URL
+
+                const targetId = this.getAttribute('href');
+
+                // Scroll to Top
+                if (targetId === '#') {
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                    return;
+                }
+
+                // Scroll to Section
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    const headerOffset = 80; // Height of fixed header + padding
+                    const elementPosition = targetElement.getBoundingClientRect().top;
+                    const offsetPosition = elementPosition + window.scrollY - headerOffset;
+
+                    window.scrollTo({
+                        top: offsetPosition,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        /* =========================================
+           3. INFINITE MARQUEE (Content Duplication)
+           ========================================= */
+        const track = document.getElementById('marqueeTrack');
+        if (track) {
+            const content = track.innerHTML;
+            // Duplicate content 4 times to ensure smooth infinite loop
+            track.innerHTML = content.repeat(4);
+        }
+    });
+
+    /* =========================================
+       4. PROCESS TABS (Auto-Rotation & Click)
+       ========================================= */
+    const steps = [
+        {
+            title: "۱. مشاوره",
+            desc: "پروژه شما نیازسنجی شده و بهترین راهکارهای فنی همراه قیمت‌های اقتصادی توسط کارشناسان ما پیشنهاد می‌شود. ما به شما کمک می‌کنیم تا بهترین تصمیم را برای زیرساخت برق خود بگیرید."
+        },
+        {
+            title: "۲. بازدید",
+            desc: "تیم فنی به محل پروژه اعزام شده و پس از بررسی دقیق، سیستم نیرورسانی برق شما را مطابق با استانداردهای وزارت نیرو و مقررات ملی انجام می‌دهد."
+        },
+        {
+            title: "۳. اجرا",
+            desc: "پس از تایید نقشه‌ها، تیم اجرایی ما با استفاده از تجهیزات استاندارد و با رعایت کامل نکات ایمنی (HSE)، فرآیند اجرای پروژه را آغاز کرده و پس از تست‌های نهایی پروژه شما تحویل داده می‌شود."
+        }
+    ];
+
+    let currentStep = 0;
+    let autoRotateInterval; // Variable to store the timer
+
+    // Function to update the UI
+    function updateTabUI(index) {
+        const tabs = document.querySelectorAll('.p-tab');
+        const contentBox = document.getElementById('process-desc');
+        
+        // Update Active Class
+        tabs.forEach((tab, i) => {
+            if (i === index) {
+                tab.classList.add('active');
+            } else {
+                tab.classList.remove('active');
+            }
+        });
+
+        // Fade out/in Text
+        if(contentBox) {
+            contentBox.style.opacity = 0;
+            setTimeout(() => {
+                contentBox.textContent = steps[index].desc;
+                contentBox.style.opacity = 1;
+            }, 300);
+        }
+    }
+
+    // Function called by HTML onclick="..."
+    window.setStep = function(index) {
+        currentStep = index;
+        updateTabUI(index);
+        
+        // Reset timer on manual click to avoid immediate auto-jump
+        clearInterval(autoRotateInterval);
+        startAutoRotation();
+    };
+
+    // Initialize Auto-Rotation
+    function startAutoRotation() {
+        autoRotateInterval = setInterval(() => {
+            let next = (currentStep + 1) % steps.length;
+            currentStep = next;
+            updateTabUI(next);
+        }, 10000); // 10 Seconds
+    }
+
+    // Start on Load
+    document.addEventListener('DOMContentLoaded', () => {
+        updateTabUI(0);
+        startAutoRotation();
+    });
     </script>
 </body>
 </html>
