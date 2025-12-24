@@ -1,53 +1,59 @@
 document.addEventListener('DOMContentLoaded', () => {
 
     /* =========================================
-       1. SMART NAVIGATION & SCROLL UX
+       1. SCROLL REVEAL ANIMATION
+       ========================================= */
+    const revealElements = document.querySelectorAll('.reveal');
+    const revealObserver = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('active');
+                observer.unobserve(entry.target);
+            }
+        });
+    }, {
+        root: null,
+        threshold: 0.15
+    });
+    revealElements.forEach(el => revealObserver.observe(el));
+
+    /* =========================================
+       2. SMART NAVIGATION (Sticky on Up Scroll)
        ========================================= */
     const nav = document.getElementById('mainNav');
-    const sections = document.querySelectorAll('section');
-    const navLinks = document.querySelectorAll('.nav-link');
     let lastScrollTop = 0;
 
     window.addEventListener('scroll', () => {
-        const scrollTop = window.scrollY || document.documentElement.scrollTop;
+        const scrollTop = window.scrollY;
 
-        // --- Hide/Show Navbar on Scroll ---
-        if (scrollTop > lastScrollTop && scrollTop > 100) {
-            nav.style.transform = 'translateY(-100%)';
+        // Add Glass effect on scroll
+        if (scrollTop > 50) {
+            nav.classList.add('scrolled');
         } else {
-            nav.style.transform = 'translateY(0)';
+            nav.classList.remove('scrolled');
         }
+
+        // Hide on Down, Show on Up
+        if (scrollTop > lastScrollTop && scrollTop > 100) {
+            // Scrolling Down
+            nav.classList.remove('nav-up');
+            nav.classList.add('nav-down');
+        } else {
+            // Scrolling Up
+            nav.classList.remove('nav-down');
+            nav.classList.add('nav-up');
+        }
+
         lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
-
-        // --- Active Menu Highlighting ---
-        let currentSectionId = '';
-        sections.forEach(section => {
-            const sectionTop = section.offsetTop;
-            const sectionHeight = section.clientHeight;
-            // Offset of 250px helps trigger the active state slightly before full scroll
-            if (scrollTop >= (sectionTop - 250)) {
-                currentSectionId = section.getAttribute('id');
-            }
-        });
-
-        navLinks.forEach(link => {
-            link.classList.remove('active');
-            if (currentSectionId && link.getAttribute('href').includes(currentSectionId)) {
-                link.classList.add('active');
-            }
-        });
     });
 
     /* =========================================
-       2. SMOOTH SCROLL & HASH REMOVAL
+       3. SMOOTH SCROLL
        ========================================= */
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function(e) {
-            e.preventDefault(); // Prevents # from appearing in URL
-
+            e.preventDefault();
             const targetId = this.getAttribute('href');
-
-            // Scroll to Top
             if (targetId === '#') {
                 window.scrollTo({
                     top: 0,
@@ -55,14 +61,11 @@ document.addEventListener('DOMContentLoaded', () => {
                 });
                 return;
             }
-
-            // Scroll to Section
             const targetElement = document.querySelector(targetId);
             if (targetElement) {
-                const headerOffset = 80; // Height of fixed header + padding
+                const headerOffset = 90;
                 const elementPosition = targetElement.getBoundingClientRect().top;
                 const offsetPosition = elementPosition + window.scrollY - headerOffset;
-
                 window.scrollTo({
                     top: offsetPosition,
                     behavior: 'smooth'
@@ -72,18 +75,17 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     /* =========================================
-       3. INFINITE MARQUEE (Content Duplication)
+       4. INFINITE MARQUEE
        ========================================= */
     const track = document.getElementById('marqueeTrack');
     if (track) {
         const content = track.innerHTML;
-        // Duplicate content 4 times to ensure smooth infinite loop
         track.innerHTML = content.repeat(4);
     }
 });
 
 /* =========================================
-   4. PROCESS TABS (Auto-Rotation & Click)
+   5. PROCESS TABS LOGIC
    ========================================= */
 const steps = [{
         title: "۱. مشاوره",
@@ -100,53 +102,82 @@ const steps = [{
 ];
 
 let currentStep = 0;
-let autoRotateInterval; // Variable to store the timer
+let autoRotateInterval;
 
-// Function to update the UI
 function updateTabUI(index) {
     const tabs = document.querySelectorAll('.p-tab');
+    const lines = document.querySelectorAll('.p-line');
     const contentBox = document.getElementById('process-desc');
 
-    // Update Active Class
     tabs.forEach((tab, i) => {
-        if (i === index) {
+        if (i <= index) {
             tab.classList.add('active');
         } else {
             tab.classList.remove('active');
         }
     });
 
-    // Fade out/in Text
+    lines.forEach((line, i) => {
+        if (i < index) {
+            line.classList.add('active');
+        } else {
+            line.classList.remove('active');
+        }
+    });
+
     if (contentBox) {
         contentBox.style.opacity = 0;
+        contentBox.style.transform = 'translateY(10px)';
+
         setTimeout(() => {
             contentBox.textContent = steps[index].desc;
             contentBox.style.opacity = 1;
+            contentBox.style.transform = 'translateY(0)';
         }, 300);
     }
 }
 
-// Function called by HTML onclick="..."
 window.setStep = function(index) {
     currentStep = index;
     updateTabUI(index);
-
-    // Reset timer on manual click to avoid immediate auto-jump
     clearInterval(autoRotateInterval);
     startAutoRotation();
 };
 
-// Initialize Auto-Rotation
 function startAutoRotation() {
     autoRotateInterval = setInterval(() => {
         let next = (currentStep + 1) % steps.length;
         currentStep = next;
         updateTabUI(next);
-    }, 10000); // 10 Seconds
+    }, 8000);
 }
 
-// Start on Load
 document.addEventListener('DOMContentLoaded', () => {
     updateTabUI(0);
     startAutoRotation();
+});
+
+// --- Active Menu Highlighting Logic ---
+const sections = document.querySelectorAll('section');
+const navLinks = document.querySelectorAll('.nav-link');
+
+window.addEventListener('scroll', () => {
+    let current = '';
+    const scrollPosition = window.scrollY + 150; // Offset for better accuracy
+
+    sections.forEach(section => {
+        const sectionTop = section.offsetTop;
+        const sectionHeight = section.clientHeight;
+
+        if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
+            current = section.getAttribute('id');
+        }
+    });
+
+    navLinks.forEach(link => {
+        link.classList.remove('active');
+        if (link.getAttribute('href').includes(current) && current !== '') {
+            link.classList.add('active');
+        }
+    });
 });
