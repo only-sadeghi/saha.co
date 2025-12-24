@@ -388,7 +388,8 @@ h1 {
 }
 
 .stat-card {
-    min-width: 250px;
+    min-width: 320px;
+    min-height: 300px;
     transform: rotate(-3deg);
     border-color: var(--primary);
 }
@@ -413,7 +414,7 @@ h1 {
 
 .stat-row {
     text-align: center;
-    padding: 10px 0;
+    padding: 20px 0;
 }
 
 .stat-val {
